@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- Remove modified AOSP repos -->
+  <include name="extras/remove.xml" />
+
+  <!-- Track modified AOSP repos -->
+  <project name="bionic" path="bionic" remote="potato-next" />
+  <project name="build_make" path="build/make" remote="potato-next" groups="pdk" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project name="build_soong" path="build/soong" remote="potato-next" groups="pdk,tradefed" >
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+  <project name="frameworks_av" path="frameworks/av" remote="potato-next" />
+  <project name="frameworks_base" path="frameworks/base" remote="potato-next" />
+  <project name="frameworks_native" path="frameworks/native" remote="potato-next" />
+  <project name="frameworks_libs_systemui" path="frameworks/libs/systemui" remote="potato-next" />
+  <project name="packages_apps_Launcher3" path="packages/apps/Launcher3" remote="potato-next" />
+  <project name="packages_apps_ThemePicker" path="packages/apps/ThemePicker" remote="potato-next" />
+  <project name="packages_apps_Settings" path="packages/apps/Settings" remote="potato-next" />
+  <project name="packages_apps_SettingsIntelligence" path="packages/apps/SettingsIntelligence" remote="potato-next" />
+  <project name="packages_modules_adb" path="packages/modules/adb"  remote="potato-next" />
+  <project name="packages_modules_Bluetooth" path="packages/modules/Bluetooth" remote="potato-next" />
+  <project name="packages_providers_DownloadProvider" path="packages/providers/DownloadProvider" remote="potato-next" />
+  <project name="packages_providers_TelephonyProvider" path="packages/providers/TelephonyProvider" remote="potato-next" />
+  <project name="system_update_engine" path="system/update_engine" remote="potato-next" />
+
+  <!-- Non-AOSP repos -->
+  <project name="packages_apps_Recorder" path="packages/apps/Recorder" remote="potato-next" />
+  <project name="packages_apps_Updater" path="packages/apps/Updater" remote="potato-next" />
+  <project name="vendor_potato" path="vendor/potato" remote="potato-next" />
+  <project name="vendor_potato-prebuilts" path="vendor/potato-prebuilts" remote="potato-next" />
+</manifest>
